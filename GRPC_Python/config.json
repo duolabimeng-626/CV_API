@@ -1,0 +1,109 @@
+{
+  "nacos": {
+    "server_ip": "127.0.0.1",
+    "port": 8848,
+    "namespace": "public",
+    "username": "",
+    "password": "",
+    "group_name": "DEFAULT_GROUP",
+    "enable_auth": false
+  },
+  "gateway": {
+    "name": "yolo-gateway",
+    "ip": "127.0.0.1",
+    "port": 8080,
+    "group": "DEFAULT_GROUP"
+  },
+  "grpc": {
+    "max_workers": 8,
+    "max_receive_message_length": 33554432,
+    "max_send_message_length": 33554432
+  },
+  "yolo_instances": {
+    "detection_nano": {
+      "name": "yolo-detection-nano",
+      "ip": "127.0.0.1",
+      "port": 50052,
+      "group": "DEFAULT_GROUP",
+      "cluster": "DEFAULT",
+      "model_config": {
+        "weights": "models/yolo/weights/yolov8n.pt",
+        "model_type": "detection",
+        "model_name": "yolov8n",
+        "model_version": "8.0",
+        "target_width": 640,
+        "target_height": 640,
+        "keep_aspect_ratio": true,
+        "jpeg_quality": 90
+      },
+      "metadata": {
+        "version": "1.0.0",
+        "description": "YOLO Detection Service - Nano Model",
+        "protocol": "grpc",
+        "capabilities": "detection,tracking",
+        "input_formats": "image/jpeg,image/png",
+        "output_formats": "json,overlay_image",
+        "max_image_size": "4096x4096",
+        "gpu_required": "false",
+        "health_check": "/health"
+      }
+    },
+    "detection_small": {
+      "name": "yolo-detection-small",
+      "ip": "127.0.0.1",
+      "port": 50053,
+      "group": "DEFAULT_GROUP",
+      "cluster": "DEFAULT",
+      "model_config": {
+        "weights": "models/yolo/weights/yolov8s.pt",
+        "model_type": "detection",
+        "model_name": "yolov8s",
+        "model_version": "8.0",
+        "target_width": 640,
+        "target_height": 640,
+        "keep_aspect_ratio": true,
+        "jpeg_quality": 90
+      },
+      "metadata": {
+        "version": "1.0.0",
+        "description": "YOLO Detection Service - Small Model",
+        "protocol": "grpc",
+        "capabilities": "detection,tracking",
+        "input_formats": "image/jpeg,image/png",
+        "output_formats": "json,overlay_image",
+        "max_image_size": "4096x4096",
+        "gpu_required": "false",
+        "health_check": "/health"
+      }
+    },
+    "segmentation-nano": {
+      "name": "yolo-segmentation-nano",
+      "ip": "127.0.0.1",
+      "port": 50054,
+      "group": "DEFAULT_GROUP",
+      "cluster": "DEFAULT",
+      "model_config": {
+        "weights": "models/yolo/weights/yolov8n-seg.pt",
+        "model_type": "segmentation",
+        "model_name": "yolov8n-seg",
+        "model_version": "8.0",
+        "target_width": 640,
+        "target_height": 640,
+        "keep_aspect_ratio": true,
+        "jpeg_quality": 90
+      },
+      "metadata": {
+        "version": "1.0.0",
+        "description": "YOLO Segmentation Service - Nano Model",
+        "protocol": "grpc",
+        "capabilities": "segmentation",
+        "input_formats": "image/jpeg,image/png",
+        "output_formats": "json,overlay_image",
+        "max_image_size": "4096x4096",
+        "gpu_required": "false",
+        "health_check": "/health"
+      }
+    }
+  },
+  "default_instance": "detection_nano"
+}

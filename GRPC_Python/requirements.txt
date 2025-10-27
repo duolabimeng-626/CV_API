@@ -1,0 +1,24 @@
+# ==== Core ====
+protobuf==5.29.3
+grpcio==1.71.0
+grpcio-tools==1.71.0
+googleapis-common-protos>=1.63.2
+
+# ==== AI/ML ====
+torch==2.2.2
+torchvision==0.17.2
+ultralytics==8.0.196
+opencv-python==4.8.1.78
+
+# ==== Nacos ====
+nacos-sdk-python==2.0.9
+
+# ==== HTTP ====
+fastapi==0.104.1
+uvicorn==0.24.0.post1
+
+# ==== Utilities ====
+python-dotenv==1.0.0
+
+# ==== FastAPI extras ====
+pydantic==2.6.4
