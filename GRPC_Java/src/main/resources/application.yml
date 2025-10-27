@@ -1,0 +1,28 @@
+server:
+  port: 8088
+
+grpc:
+  server:
+    host: localhost
+    port: 50052
+  service:
+    name: yolo-detection-nano
+
+# Nacos配置
+nacos:
+  server:
+    addr: 127.0.0.1:8848
+  namespace: ""
+  username: nacos
+  password: nacos
+  group: DEFAULT_GROUP
+
+spring:
+  application:
+    name: grpc-java-inference-api
+  
+logging:
+  level:
+    com.duola.grpc_java: DEBUG
+    io.grpc: INFO
+    reactor.netty: DEBUG
